@@ -3,10 +3,10 @@ package com.seguridad.seguridadinformatica
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.auth0.android.jwt.JWT
 import com.seguridad.seguridadinformatica.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +20,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.lblName.text = "Pablo Alfonso Vargas Melgar"
-        binding.lblEmail.text = "pablo.alfonso.vargas@example.com"
-        binding.lblId.text = "2470004440202"
+        val idToken = intent.getStringExtra("idToken")
+
+        if(idToken != null){
+            val jwt = JWT(idToken)
+
+            val name = jwt.getClaim("name").asString() ?: "Nombre no disponible"
+            val email = jwt.getClaim("email").asString() ?: "Correo no disponible"
+            val userId = jwt.getClaim("sub").asString() ?: "ID no disponible"
+
+            binding.lblName.text = name
+            binding.lblEmail.text = email
+            binding.lblId.text = userId
+
+        } else {
+            binding.lblName.text = "Error: sin token"
+        }
+
+
     }
 }

@@ -12,6 +12,8 @@ securityCrypto = "1.1.0-alpha06"
 appcompat = "1.7.1"
 material = "1.11.0"
 cardview = "1.0.0"
+auth0 = "2.10.0"
+jwtdecode = "2.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +34,8 @@ security-crypto = { group = "androidx.security", name = "security-crypto", versi
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
+auth0 = { group = "com.auth0.android", name = "auth0", version.ref = "auth0" }
+jwtdecode = { group = "com.auth0.android", name = "jwtdecode", version.ref = "jwtdecode" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

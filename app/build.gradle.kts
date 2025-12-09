@@ -17,6 +17,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        manifestPlaceholders["auth0Scheme"] = "demo"
+        manifestPlaceholders["auth0Domain"] = "dev-8gm8eqpotdln50ge.us.auth0.com"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -55,6 +58,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.cardview)
+    implementation(libs.auth0)
+    implementation(libs.jwtdecode)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
